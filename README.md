@@ -9,11 +9,10 @@ A template showing how to implement a login menu in Winui3
 
 # Main features:
 
-1.Only logged in users can load the pages.
+1.Only logged user can operator the Redis Database.(Like adding a new user)
 
-2.Implementing Operations on Redis Database in Winui3 (like adding a new user).
-
-3.Customize Your Application Background.
+2.Customize Your Application Background.
 
 # About
-Remember to set your own Redis address and password in Settings Page. Otherwith it will be set to "127.0.0.1" automatically.
+Before this, please ensure that you can perform the operation (Like adding new string .etc) normally on your Redis command line(redis.cli). 
+Remember to set your own Redis address and password (if you have one) in Settings Page. Otherwith it will be set to "127.0.0.1" automatically.
