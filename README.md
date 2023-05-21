@@ -17,7 +17,5 @@ A template showing how to implement a login menu in Winui3
 
 1.Customize Your Application Background.
 
-2.(Haven't done yet)
-
 # About
-
+Remember to set your own Redis address and password in Settings Page. Otherwith it will be set to "127.0.0.1" automatically.
