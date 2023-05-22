@@ -1,5 +1,5 @@
 # LoginMenuTemplate-WinUI3
-A template showing how to implement a login menu in Winui3
+A template that showing how to implement a login menu in Winui3.
 
 # Requirements:
 
