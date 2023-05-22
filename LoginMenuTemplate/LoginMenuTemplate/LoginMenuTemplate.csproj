@@ -1,0 +1,127 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>LoginMenuTemplate</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x86;x64;ARM64</Platforms>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
+    <UseWinUI>true</UseWinUI>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <ApplicationIcon>Assets\Icon\Trash_BinEmpty.ico</ApplicationIcon>
+
+
+	  <!--
+	    Unpackaged:
+	      <WindowsPackageType>None</WindowsPackageType>
+          <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+	  -->
+
+	  <WindowsPackageType>None</WindowsPackageType>
+	  <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Assets\App.xaml" />
+    <Content Remove="Assets\App.xaml.cs" />
+    <Content Remove="Assets\Icon\LargeTile.scale-100.png" />
+    <Content Remove="Assets\Icon\LargeTile.scale-125.png" />
+    <Content Remove="Assets\Icon\LargeTile.scale-150.png" />
+    <Content Remove="Assets\Icon\LargeTile.scale-200.png" />
+    <Content Remove="Assets\Icon\LargeTile.scale-400.png" />
+    <Content Remove="Assets\Icon\SmallTile.scale-100.png" />
+    <Content Remove="Assets\Icon\SmallTile.scale-125.png" />
+    <Content Remove="Assets\Icon\SmallTile.scale-150.png" />
+    <Content Remove="Assets\Icon\SmallTile.scale-200.png" />
+    <Content Remove="Assets\Icon\SmallTile.scale-400.png" />
+    <Content Remove="Assets\Icon\SplashScreen.scale-100.png" />
+    <Content Remove="Assets\Icon\SplashScreen.scale-125.png" />
+    <Content Remove="Assets\Icon\SplashScreen.scale-150.png" />
+    <Content Remove="Assets\Icon\SplashScreen.scale-200.png" />
+    <Content Remove="Assets\Icon\Square150x150Logo.scale-100.png" />
+    <Content Remove="Assets\Icon\Square150x150Logo.scale-125.png" />
+    <Content Remove="Assets\Icon\Square150x150Logo.scale-150.png" />
+    <Content Remove="Assets\Icon\Square150x150Logo.scale-200.png" />
+    <Content Remove="Assets\Icon\Square150x150Logo.scale-400.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.scale-100.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.scale-125.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.scale-150.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.scale-200.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.scale-400.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.targetsize-16.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.targetsize-24.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.targetsize-256.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.targetsize-32.png" />
+    <Content Remove="Assets\Icon\Square44x44Logo.targetsize-48.png" />
+    <Content Remove="Assets\Icon\StoreLogo.scale-100.png" />
+    <Content Remove="Assets\Icon\StoreLogo.scale-125.png" />
+    <Content Remove="Assets\Icon\StoreLogo.scale-150.png" />
+    <Content Remove="Assets\Icon\StoreLogo.scale-200.png" />
+    <Content Remove="Assets\Icon\StoreLogo.scale-400.png" />
+    <Content Remove="Assets\Icon\Wide310x150Logo.scale-100.png" />
+    <Content Remove="Assets\Icon\Wide310x150Logo.scale-125.png" />
+    <Content Remove="Assets\Icon\Wide310x150Logo.scale-150.png" />
+    <Content Remove="Assets\Icon\Wide310x150Logo.scale-200.png" />
+    <Content Remove="Assets\Icon\Wide310x150Logo.scale-400.png" />
+    <Content Remove="Assets\MainWindow.xaml" />
+    <Content Remove="Assets\MainWindow.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\Background\Default.jpg" />
+    <None Remove="Assets\Icon\SplashScreen.scale-400.png" />
+    <None Remove="Assets\SVGFile\Yes.svg" />
+    <None Remove="Pages\Github.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Remove="Assets\App.xaml" />
+    <Page Remove="Assets\MainWindow.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221209.1" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.111" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <!-- 
+    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+    Tools extension to be activated for this project even if the Windows App SDK Nuget
+    package has not yet been restored.
+  -->
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+	 <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.865-prerelease" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Assets\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <Page Update="Pages\Github.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <!-- 
+    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
+    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
+    the Windows App SDK Nuget package has not yet been restored.
+  -->
+  <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+  </PropertyGroup>
+</Project>

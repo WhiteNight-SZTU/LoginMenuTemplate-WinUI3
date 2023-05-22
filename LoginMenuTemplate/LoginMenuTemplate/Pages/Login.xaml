@@ -1,0 +1,32 @@
+<!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Page
+    x:Class="LoginMenuTemplate.Pages.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoginMenuTemplate.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+   >
+
+    <StackPanel>
+        <StackPanel>
+            <TextBlock Text="登录界面" Margin="15,25,15,15" FontWeight="Bold"  Style="{StaticResource HeaderTextBlockStyle}"/>
+        </StackPanel>
+
+        <StackPanel x:Name="LoginMenu" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0">
+            <PasswordBox Name="accountBox" Width="250" Margin="0,5,8,9" PasswordRevealMode="Visible" PlaceholderText="请输入账号"/>
+            <PasswordBox Name="passwordBox" Width="250" Margin="0,5,8,0" PasswordRevealMode="Hidden" PlaceholderText="请输入密码" />
+            <CheckBox Name="revealModeCheckBox" Content="Show password" IsChecked="False" Margin="50,5,8,0"
+                  Checked="RevealModeCheckbox_Changed" Unchecked="RevealModeCheckbox_Changed"/>
+            <Button Content="登录" Click="LoginCheck"/>
+            <TextBlock x:Name="CantFindUser" Text="未找到用户!" Visibility="Collapsed"/>
+        </StackPanel>
+        <StackPanel x:Name="ExitLoginMenu" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed">
+            <Button Content="退出登录" Click="ExitLogin"/>
+        </StackPanel>
+    </StackPanel>
+
+</Page>

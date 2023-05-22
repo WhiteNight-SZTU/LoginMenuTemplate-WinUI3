@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LoginMenuTemplate (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "LoginMenuTemplate (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
